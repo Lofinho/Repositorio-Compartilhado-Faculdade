@@ -11,14 +11,14 @@ const mesAtual = hoje.getMonth();
 // Continue daqui
 
 let dia, mes, diferenca, totalDeDias;
-let ano = hoje.getFullYear()
+let ano = hoje.getFullYear();
 
 while (!(dia >= 1 && dia <= 31)) {
-  dia = Number(prompt('Digite o dia do seu aniversário'));
+    dia = Number(prompt('Digite o dia do seu aniversário'));
 }
 
 while (!(mes >= 1 && mes <= 12)) {
-  mes = Number(prompt('Digite o mes do seu aniversário'));
+    mes = Number(prompt('Digite o mes do seu aniversário'));
 }
 
 let dataAniversario = new Date(`${mes}/${dia}/${ano}`);
