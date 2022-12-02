@@ -4,22 +4,23 @@ const mesAtual = hoje.getMonth(); */
 
 // Continue
 //!Data do aniversário
-let dataAniversario = new Date('06/30/2022');
+let dia = prompt('Digite o dia do seu aniversário');
+let mes = prompt('Digite o mês do seu aniversário');
+let ano = hoje.getFullYear();
+
+let dataAniversario = new Date(`${mes}/${dia}/${ano}`);
 
 let diference = hoje.getTime() - dataAniversario.getTime();
-let proximoAniversario = new Date('06/30/2023');
-let diferenceNext = proximoAniversario.getTime() - hoje.getTime();
+let diasCalculados = Math.floor(diference / (1000 * 3600 * 24));
 
-//Calculando a quantidade de dias desde o meu último aniversário
-console.log(
-  `Já se passaram: ${Math.floor(
-    diference / (1000 * 3600 * 24)
-  )} dias desde o meu aniversário`
-);
+//! método para ver se é positivo ou negativo
+console.log(Math.sign(diference));
+//se maior 1
+// se menor -1
 
-//Calculando a quantidade de dias até meu próximo aniversário
-console.log(
-  `Faltam ${Math.floor(
-    diferenceNext / (1000 * 3600 * 24)
-  )} dias até meu próximo aniversário`
-);
+//! if else para ver a saída do código
+if (Math.sign(diference) == 1) {
+  alert(`Já se passaram ${diasCalculados} dias do seu aniversário`);
+} else {
+  alert(`Seu aniversário será daqui ${diasCalculados * -1} dias`);
+}
