@@ -26,12 +26,16 @@ let dataAniversario = new Date(`${mes}/${dia}/${ano}`);
 if (dataAniversario < hoje) {
     diferenca = hoje - dataAniversario;
     totalDeDias = Math.floor(diferenca / (1000 * 3600 * 24));
-    alert(`Já se passaram ${totalDeDias} dias do seu aniversário`);
-    let newDataAniversario = new Date(`${mes}/${dia}/${++ano}`);
-    newDiferenca = newDataAniversario - hoje;
-    newTotalDeDias = Math.ceil(newDiferenca / (1000 * 3600 * 24));
-    alert(`Faltam ${newTotalDeDias} para o seu próximo aniversário`);
 
+    if (totalDeDias == 0) {
+        alert('Seu aniversário é hoje, PARABÉNS!!!!!');
+    } else {
+        alert(`Já se passaram ${totalDeDias} dias do seu aniversário`);
+        let newDataAniversario = new Date(`${mes}/${dia}/${++ano}`);
+        newDiferenca = newDataAniversario - hoje;
+        newTotalDeDias = Math.ceil(newDiferenca / (1000 * 3600 * 24));
+        alert(`Faltam ${newTotalDeDias} para o seu próximo aniversário`);
+    }
 } else {
     diferenca = dataAniversario - hoje;
     totalDeDias = Math.ceil(diferenca / (1000 * 3600 * 24));
