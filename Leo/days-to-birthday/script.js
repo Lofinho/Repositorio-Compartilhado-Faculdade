@@ -41,3 +41,4 @@ if (dataAniversario < hoje) {
     totalDeDias = Math.ceil(diferenca / (1000 * 3600 * 24));
     alert(`Faltam ${totalDeDias} para o seu aniversário`);
 }
+
