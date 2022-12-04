@@ -10,14 +10,14 @@ const mesAtual = hoje.getMonth();
 
 // Continue daqui
 
-let dia, mes, diferenca, totalDeDias;
+let dia, mes, diferenca, totalDeDias, newDiferenca, newTotalDeDias;
 let ano = hoje.getFullYear();
 
-while (!(dia >= 1 && dia <= 31)) {
+while (!(dia >= 1 && dia <= 31 && Number.isInteger(dia))) {
     dia = Number(prompt('Digite o dia do seu aniversário'));
 }
 
-while (!(mes >= 1 && mes <= 12)) {
+while (!(mes >= 1 && mes <= 12 && Number.isInteger(mes))) {
     mes = Number(prompt('Digite o mes do seu aniversário'));
 }
 
@@ -26,7 +26,12 @@ let dataAniversario = new Date(`${mes}/${dia}/${ano}`);
 if (dataAniversario < hoje) {
     diferenca = hoje - dataAniversario;
     totalDeDias = Math.floor(diferenca / (1000 * 3600 * 24));
-    alert(`Seu aniversário já passou, agora faltam ${totalDeDias}`);
+    alert(`Já se passaram ${totalDeDias} dias do seu aniversário`);
+    let newDataAniversario = new Date(`${mes}/${dia}/${++ano}`);
+    newDiferenca = newDataAniversario - hoje;
+    newTotalDeDias = Math.ceil(newDiferenca / (1000 * 3600 * 24));
+    alert(`Faltam ${newTotalDeDias} para o seu próximo aniversário`);
+
 } else {
     diferenca = dataAniversario - hoje;
     totalDeDias = Math.ceil(diferenca / (1000 * 3600 * 24));
